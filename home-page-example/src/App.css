@@ -1,0 +1,46 @@
+.box {
+  color: red;
+  border-style: red;
+}
+
+#nav-container {
+
+  display: flex;
+  border-style: dotted;
+  justify-content: center;
+  justify-content: space-evenly;
+list-style-type: none;
+}
+
+a {
+  color: blue;
+  text-decoration: none;
+}
+
+a:hover {
+  color:red;
+  border-style: solid;
+  background-color: aqua;
+}
+
+
+
+/* NAV END */
+
+/* WELCOME START */
+
+#main-content {
+  text-align: center;
+  height: 100vh;
+}
+
+h1 {
+  font-size: 80px;
+  
+}
+
+
+#footer {
+  border-style: solid;
+
+}
