@@ -5,7 +5,7 @@ const MyNavBar = () => {
     <ul id="nav-container">
        <li>
         <a href="http://localhost:3000/welcome">
-    <img   src="https://shorturl.at/druxL"/>
+    <img   src="https://shorturl.at/druxL" height= "100px"/>
     </a>
 
       </li> 
@@ -17,6 +17,10 @@ const MyNavBar = () => {
       </li>
       <li>
         <a href="#">Info</a>
+      </li>
+
+      <li>
+        <a href="#">Form Page</a>
       </li>
       
     </ul>

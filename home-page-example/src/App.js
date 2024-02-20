@@ -6,6 +6,8 @@ import Welcome from "./components/Welcome";
 import Contact from "./pages/Contact.js";
 import { BrowserRouter, Routes, Route } from "react-router-dom";
 import Info from "./pages/info.js";
+import Form from "./pages/Form.js";
+
 
 function App() {
   return (
@@ -20,6 +22,8 @@ function App() {
         <Route path="/contact" element ={<Contact />} />
         <Route path="/info" element ={<Info />} />
         <Route path="/welcome" element ={<Welcome/>} />
+        <Route path="/form" element ={<Form/>} />
+
 
 
       </Routes>
