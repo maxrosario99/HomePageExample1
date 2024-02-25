@@ -16,28 +16,50 @@ export function emailValidator(email) {
 
 export function phoneNumberValidator(phonenumber) {
   console.log(phonenumber);
-  if (phonenumber.search(/[a - z]/) >= -1);
-  {
+  if (phonenumber.search(/[a - z]/) != -1) {
+    console.log(phonenumber.search(/[a - z]/));
     return {
       phonenumber: "Phone Number is invalid",
     };
   }
+  if (phonenumber.length < 25) {
+    return {
+      phonenumber: "phone number must be atleast  characters long",
+    };
+  }
+  console.log(phonenumber.length);
 }
 
 export function validateUsername(username) {
-  if (username.indexOf(/[a - z]/i) === -1);
-  {
-    console.log("username is bad");
+  console.log(username.search(/[a - z]/));
+  if (username.search(/[a - z]/) === -1) {
+    console.log(username.search(/[a - z]/));
     return {
-      username: "Username must have letters",
+      username: "Username must have lowercase letters",
+    };
+  }
+  if (username.search(/[A - Z]/) === -1) {
+    console.log(username.search(/[A - Z]/));
+    return {
+      username: "username must have capital letters",
     };
   }
 }
 
 export function passwordValidator(password) {
-  if (password.length > 10) {
+  if (password.length < 10) {
     return {
-      password: "password must be less than 10 characters",
+      password: "password must be at least 10 characters",
+    };
+  }
+  if (password.search(/[a - z]/i) === -1) {
+    return {
+      password: "password must have letters",
+    };
+  }
+  if (password.search(/[1 - 9]/) === -1) {
+    return {
+      password: "password must have numbers",
     };
   }
 }
@@ -46,11 +68,12 @@ export function validateForm(myUser) {
   const errors = [];
   //
   const emailError = emailValidator(myUser.email);
+  const phonenumberError = phoneNumberValidator(myUser.phonenumber);
 
   if (emailError !== undefined) {
     errors.push(emailError);
   }
-  const phonenumberError = phoneNumberValidator(myUser.phonenumber);
+
   if (phonenumberError !== undefined) {
     errors.push(phonenumberError);
   }
