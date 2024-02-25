@@ -1,3 +1,11 @@
+/* GLOBAL STYLES START */
+
+.form-container {
+  display: flex;
+  flex-direction: column;
+  flex-wrap: wrap;
+  align-items: center;
+}
 .box {
   color: red;
   border-style: red;
@@ -23,6 +31,9 @@ a:hover {
   background-color: aqua;
 }
 
+.error-message {
+  color: red;
+}
 
 
 /* NAV END */
@@ -43,4 +54,8 @@ h1 {
 #footer {
   border-style: solid;
 
+}
+
+#login-container{
+  text-align: center;
 }
