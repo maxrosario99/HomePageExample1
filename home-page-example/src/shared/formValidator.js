@@ -5,7 +5,11 @@ export function emailValidator(email) {
     };
   }
 
-  if (email.indexOf(".com") >= 0 || email.indexOf(".net") >= 0) {
+  if (
+    email.indexOf(".com") >= 0 ||
+    email.indexOf(".net") ||
+    email.indexOf(".org") >= 0
+  ) {
     console.log("email is good");
   } else {
     return {
@@ -22,9 +26,9 @@ export function phoneNumberValidator(phonenumber) {
       phonenumber: "Phone Number is invalid",
     };
   }
-  if (phonenumber.length < 25) {
+  if (phonenumber.length != 10) {
     return {
-      phonenumber: "phone number must be atleast  characters long",
+      phonenumber: "phone number must be   10 characters long",
     };
   }
   console.log(phonenumber.length);
@@ -33,15 +37,20 @@ export function phoneNumberValidator(phonenumber) {
 export function validateUsername(username) {
   console.log(username.search(/[a - z]/));
   if (username.search(/[a - z]/) === -1) {
-    console.log(username.search(/[a - z]/));
+    console.log(username.search(/[a - z]/i));
     return {
-      username: "Username must have lowercase letters",
+      username: "Username must have  letters",
     };
   }
-  if (username.search(/[A - Z]/) === -1) {
-    console.log(username.search(/[A - Z]/));
+
+  if (username.length > 15) {
     return {
-      username: "username must have capital letters",
+      username: "Username can be no more than 15 characters long",
+    };
+  }
+  if (username.length < 5) {
+    return {
+      username: "Username must be at least 5 characters long",
     };
   }
 }
@@ -52,16 +61,45 @@ export function passwordValidator(password) {
       password: "password must be at least 10 characters",
     };
   }
-  if (password.search(/[a - z]/i) === -1) {
+  if (password.search(/[a - z]/) === -1) {
     return {
-      password: "password must have letters",
+      password: "password must have atleast one lowercase letters",
     };
   }
+
+  if (password.search(/[A - Z]/) === -1) {
+    return {
+      password: "password must have atleast one uppercase letters",
+    };
+  }
+
   if (password.search(/[1 - 9]/) === -1) {
     return {
       password: "password must have numbers",
     };
   }
+  if (password.length > 25) {
+    return {
+      password: "password must be at most 25 characters",
+    };
+  }
+
+  if (password.length < 5) {
+    return {
+      password: "password must be at least 5 characters",
+    };
+  }
+  if (password.search(/[ !"#$%&'()*+,-./:;<=>?@[\\\]^_`{|}~]/) === -1) {
+    return {
+      password: "password must have atleast one special character",
+    };
+  }
+
+  // if (password.search(/[ `!@#$%^&*()_+\-=\[\]{};':"\\|,.<>\/?~]/) === -1) {
+  //   return {
+  //     password: "password must have at least one special character",
+  //   };
+  // }
 }
 
 export function validateForm(myUser) {
